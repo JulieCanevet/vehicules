@@ -95,6 +95,37 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+
+
+/*    --------------------------------------------------
+    :: add vehicules
+    -------------------------------------------------- */
+.add {
+    padding-top: 50px
+}
+
+.add h1 {
+    color: #1fa67b;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+i{
+    color: #1fa67b;
+}
+#plus button{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.form-control {
+    color: #212121;
+}
+.btn-custom {
+    color: #fff;
+    background-color: #1fa67b;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
