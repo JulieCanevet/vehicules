@@ -20,28 +20,21 @@
       <form id="plus" method="POST" action="index.php">
         <button type="submit" name="plus"><i class="fa fa-plus" aria-hidden="true"></i></button>
       </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<?php
+if(isset($vehicules)){
+    foreach ($vehicules as $key => $value) {
+?>
+<div class="card container col-6">
+  <div class="card-block">
+    <h4 class="card-title"><?php echo $value['type'] ?></h4>
+    <h6 class="card-subtitle mb-2 text-muted"><?php echo $value['color'] ?></h6>
+    <p class="card-text"><?php echo $value['price'] ?></p>
+    <a href="#" class="card-link">Voir</a>
+    <a href="#" class="card-link">Modifier</a>
+    <a href="#" class="card-link">Supprimer</a>
+  </div>
+</div>
+    <?php }} ?>
 <!-- End -->
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
       <script src="js/plugins.js"></script>
