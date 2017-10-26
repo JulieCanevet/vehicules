@@ -126,6 +126,48 @@ i{
     background-color: #1fa67b;
 }
 
+/* ========== HOME ========== */
+#home {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+.card {
+    margin: 2em;
+    width: 15em;
+    background-color: #c3fbcd;
+}
+.card h4 {
+    width: 100%;
+    background-color: #f9f657;
+    padding: 1em;
+}
+
+.card-button button{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.action {
+    background-color: blue;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

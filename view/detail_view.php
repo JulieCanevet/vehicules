@@ -20,32 +20,30 @@
       <form id="plus" method="POST" action="index.php">
         <button type="submit" name="plus"><i class="fa fa-plus" aria-hidden="true"></i></button>
       </form>
-      <section id="home">
+      <a href="index.php">Retour</a>
+
 <?php
-if(isset($vehicules)){
-    foreach ($vehicules as $key => $value) {
+    foreach ($vue as $key => $value) {
 ?>
-<div class="card">
-    <h4><?php echo $value['type'] ?></h4>
-    <h5>Couleur : <?php echo $value['color'] ?>
-    <h6>Prix : <?php echo $value['price'] ?>€</h6>
-    <p class="card-text">Nombre de roues : <?php echo $value['wheelsNb'] ?></p>
-  <div class="action">
+<div class="card container col-6">
+  <div class="card-block">
+    <h4 class="card-title"><?php echo $value['type'] ?></h4>
+    <h6 class="card-subtitle mb-2 text-muted"><?php echo $value['color'] ?></h6>
+    <p class="card-text"><?php echo $value['price'] ?></p>
     <a href="detail.php?id=<?php echo $value['id']?>" class="card-link">Voir</a>
-  
-    <form class="card-button" id="edit" method="POST" action="index.php">
+    <a href="" class="card-link">Modifier</a>
+    
+        <form id="edit" method="POST" action="index.php">
       <input type="hidden" name="id" value="<?php echo $value['id']?>">
       <button type="submit" name="edit">Modifier</button>
     </form>
-
-    <form class="card-button"  id="delete" method="POST" action="index.php">
+    <form id="delete" method="POST" action="index.php">
       <input type="hidden" name="id" value="<?php echo $value['id']?>">
       <button type="submit" name="delete">Supprimer</button>
     </form>
   </div>
 </div>
-    <?php }} ?>
-  </section>
+    <?php } ?>
 <!-- End -->
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
       <script src="js/plugins.js"></script>
@@ -76,9 +74,5 @@ if(isset($vehicules)){
        })
        </script>
        <script src="js/js/bootstrap.min.js"></script>
-
-
-
-
     </body>
 </html>

@@ -22,17 +22,54 @@ class VehicleManager{
 	    ));
 	}
 
-	public function liste(){
-		$q = $this -> _db -> query('SELECT * FROM vehicle');
-		$details = $q -> fetchAll();
+	public function getVehicles(){
+		$req = $this -> _db -> query('SELECT * FROM vehicle');
+		$details = $req -> fetchAll();
 		return $details;
 
 	}
 
-	// public function edit(){
+	public function edit($vehicle, $id){
+		$req = $this -> _db -> prepare('UPDATE vehicle 
+			SET type = :newtype, color = :newcolor, price = :newprice, wheelsNb = :wheelsNb
+			WHERE id=:id');
+		$req -> execute(array(
+			'newtype' => $vehicle -> getType(),
+			'newcolor' => $vehicle -> getColor(),
+			'newprice' => $vehicle -> getPrice(),
+			'wheelsNb' => $vehicle -> getWheelsNb(), 
+			'id' => $id
+		));
+	}
 
-	// }
-	// public function delete(){
-		
-	// }
+
+
+	public function delete($id){
+		$req = $this -> _db -> prepare('DELETE FROM vehicle
+		WHERE id = :id');
+		$req -> execute(array(
+			'id' => $id
+		));
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
