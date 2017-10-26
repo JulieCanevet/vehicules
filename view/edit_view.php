@@ -1,5 +1,5 @@
 <section class="edit">
-    <div class="container col-12 col-sm-6 col-md-6 col-lg-2">
+    <div class="container col-12 col-sm-6 col-md-6">
         <div class="form-wrap">
         	<h1>Modifier le véhicule</h1>
             <form method="post" action="index.php">

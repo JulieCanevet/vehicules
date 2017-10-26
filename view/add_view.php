@@ -1,5 +1,5 @@
 <section class="add">
-    <div class="container col-12 col-sm-6 col-md-6 col-lg-2">
+    <div class="container col-12 col-sm-6 col-md-6">
         <div class="form-wrap">
         	<h1>Ajouter une voiture</h1>
             <form method="post" action="index.php">
@@ -21,4 +21,6 @@
             <hr>
         </div>
     </div> <!-- /.container -->
+          <a href="index.php">Retour</a>
+
 </section>

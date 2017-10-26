@@ -25,22 +25,26 @@
 <?php
     foreach ($vue as $key => $value) {
 ?>
-<div class="card container col-6">
-  <div class="card-block">
-    <h4 class="card-title"><?php echo $value['type'] ?></h4>
-    <h6 class="card-subtitle mb-2 text-muted"><?php echo $value['color'] ?></h6>
-    <p class="card-text"><?php echo $value['price'] ?></p>
+<div class="card">
+    <h3><?php echo $value['type'] ?></h3>
+    <h6 class="body">Couleur : <?php echo $value['color'] ?></h6>
+    <h6 class="body">Prix : <?php echo $value['price'] ?>€</h6>
+        <p class="body">Nombre de roues : <?php echo $value['wheelsNb'] ?></p>
+
+        <div class="footer">
+
     <a href="detail.php?id=<?php echo $value['id']?>" class="card-link">Voir</a>
-    <a href="" class="card-link">Modifier</a>
     
-        <form id="edit" method="POST" action="index.php">
+        <form class="card-button" id="edit" method="POST" action="index.php">
       <input type="hidden" name="id" value="<?php echo $value['id']?>">
       <button type="submit" name="edit">Modifier</button>
     </form>
-    <form id="delete" method="POST" action="index.php">
+
+    <form class="card-button" id="delete" method="POST" action="index.php">
       <input type="hidden" name="id" value="<?php echo $value['id']?>">
       <button type="submit" name="delete">Supprimer</button>
     </form>
+  </div>
   </div>
 </div>
     <?php } ?>

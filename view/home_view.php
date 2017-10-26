@@ -26,11 +26,11 @@ if(isset($vehicules)){
     foreach ($vehicules as $key => $value) {
 ?>
 <div class="card">
-    <h4><?php echo $value['type'] ?></h4>
-    <h5>Couleur : <?php echo $value['color'] ?>
-    <h6>Prix : <?php echo $value['price'] ?>€</h6>
-    <p class="card-text">Nombre de roues : <?php echo $value['wheelsNb'] ?></p>
-  <div class="action">
+    <h3><?php echo $value['type'] ?></h3>
+    
+    <h6 class="body">Couleur : <?php echo $value['color'] ?></h6>
+    <h6 class="body">Prix : <?php echo $value['price'] ?>€</h6>
+  <div class="footer">
     <a href="detail.php?id=<?php echo $value['id']?>" class="card-link">Voir</a>
   
     <form class="card-button" id="edit" method="POST" action="index.php">
