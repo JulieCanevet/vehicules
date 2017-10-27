@@ -20,7 +20,7 @@ class DetailsManager {
 			'id' => $id
 		));
 
-		$details = $req -> fetchAll();
+		$details = $req -> fetch();
 		return $details;
 	}
 }

@@ -41,8 +41,11 @@ if(isset($_POST['add']) && isset($_POST['type']) && isset($_POST['color']) && !e
 
 // Modifier le véhicule
 if (isset($_POST['edit'])){ // si on a cliqué sur modifier
-  require 'view/edit_view.php'; // affiche formulaire de modification
+  require 'model/detail_manager.php';
   $id = intval(htmlspecialchars($_POST['id'])); // enregistre id cliqué
+  $details = new DetailsManager($db);
+  $selectvalue = $details -> getDetails($id);
+  require 'view/edit_view.php'; // affiche formulaire de modification
 }
 
 // Si le formulaire de modification est complet
@@ -70,30 +73,10 @@ if(isset($_POST['id']) && isset($_POST['newType']) && isset($_POST['newColor']) 
 }
 
 
-
-
-
-
-
 if (isset($_POST['delete'])){ // SUPPRIMER
 	$id = intval(htmlspecialchars($_POST['id']));
 	$manager -> delete($id);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // ajouter une option pour afficher la page d'accueil

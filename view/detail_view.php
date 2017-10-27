@@ -22,32 +22,29 @@
       </form>
       <a href="index.php">Retour</a>
 
-<?php
-    foreach ($vue as $key => $value) {
-?>
 <div class="card">
-    <h3><?php echo $value['type'] ?></h3>
-    <h6 class="body">Couleur : <?php echo $value['color'] ?></h6>
-    <h6 class="body">Prix : <?php echo $value['price'] ?>€</h6>
-        <p class="body">Nombre de roues : <?php echo $value['wheelsNb'] ?></p>
+    <h3><?php echo $vue['type'] ?></h3>
+    <h6 class="body">Couleur : <?php echo $vue['color'] ?></h6>
+    <h6 class="body">Prix : <?php echo $vue['price'] ?>€</h6>
+        <p class="body">Nombre de roues : <?php echo $vue['wheelsNb'] ?></p>
 
         <div class="footer">
 
-    <a href="detail.php?id=<?php echo $value['id']?>" class="card-link">Voir</a>
+    <a href="detail.php?id=<?php echo $vue['id']?>" class="card-link">Voir</a>
     
         <form class="card-button" id="edit" method="POST" action="index.php">
-      <input type="hidden" name="id" value="<?php echo $value['id']?>">
+      <input type="hidden" name="id" value="<?php echo $vue['id']?>">
       <button type="submit" name="edit">Modifier</button>
     </form>
 
     <form class="card-button" id="delete" method="POST" action="index.php">
-      <input type="hidden" name="id" value="<?php echo $value['id']?>">
+      <input type="hidden" name="id" value="<?php echo $vue['id']?>">
       <button type="submit" name="delete">Supprimer</button>
     </form>
   </div>
   </div>
 </div>
-    <?php } ?>
+
 <!-- End -->
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
       <script src="js/plugins.js"></script>

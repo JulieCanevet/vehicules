@@ -175,13 +175,17 @@ body {
     color: white;
 }
 
-
-
-
-
-
-
-
+.modifier{
+    background-color: #95ccea;
+    border-radius: 10px;
+    border-color: #95ccea;
+    padding: .7em;
+    border: 0;
+    color: white;
+}
+.edit h1 {
+    color: #221fa5;
+}
 
 
 
