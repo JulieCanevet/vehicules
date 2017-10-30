@@ -186,8 +186,10 @@ body {
 .edit h1 {
     color: #221fa5;
 }
-
-
+#suppr{
+    background-color: transparent;
+    border-color: transparent;
+}
 
 
 

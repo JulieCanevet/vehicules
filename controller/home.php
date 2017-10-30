@@ -8,7 +8,6 @@ require 'model/vehicle_manager.php';
 // Acces aux fonction bdd manager : $manager
 $manager = new VehicleManager($db);
 
-
 // if post -> affiche formulaire
 if (isset($_POST['plus'])){
   require 'view/add_view.php';

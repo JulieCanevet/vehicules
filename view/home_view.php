@@ -18,8 +18,9 @@
     </head>
     <body>
       <form id="plus" method="POST" action="index.php">
-        <button type="submit" name="plus"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        <button type="submit" name="plus" class="plus"><i class="fa fa-plus" aria-hidden="true"></i></button>
       </form>
+
       <section id="home">
 <?php
 if(isset($vehicules)){
@@ -38,27 +39,27 @@ if(isset($vehicules)){
       <button type="submit" name="edit">Modifier</button>
     </form>
 
-    <form class="card-button"  id="delete" method="POST" action="index.php">
-      <input type="hidden" name="id" value="<?php echo $value['id']?>">
-      <button type="submit" name="delete">Supprimer</button>
+    <form class="card-button delete" method="POST" action="index.php">
+      <input type="hidden" name="id" value="<?php echo $value['id']?>"/>
+      <input type="submit" id="suppr" name="delete" onclick="if(!confirm('Etes-vous sur de vouloir supprimer ce véhicule ?')) return false;" value="Supprimer"/>
     </form>
   </div>
 </div>
     <?php }} ?>
   </section>
 <!-- End -->
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+      <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
       <script src="js/plugins.js"></script>
       <script src="js/main.js"></script>
-      <script type="text/javascript" src="js/vendor/jquery-1.12.0.min.js"></script>
-
+<!--       <script type="text/javascript" src="js/vendor/jquery-1.12.0.min.js"></script>
+ -->
 
      <!-- Tether -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 
 
       <!-- Popper -->
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 
       <!-- Latest compiled and minified Bootstrap JavaScript -->
        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
