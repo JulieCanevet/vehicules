@@ -14,26 +14,21 @@ require 'view/add_view.php';
 if(isset($_POST['add']) && isset($_POST['type']) && isset($_POST['color']) && !empty($_POST['color']) && isset($_POST['price']) && !empty($_POST['price'])){ // Si le formulaire d'ajout est complete et envoyé
 
 	if ($_POST['type'] == 'moto'){ // Si le véhicule est une moto
-  		require 'model/entity/moto.php';
-
-  		$vehicle = new Moto(array('type' => $_POST['type'], 'color' => $_POST['color'], 'price' => $_POST['price'], 'wheelsNb' => Moto::WHEELSNB));
-    }
+  	require 'model/entity/moto.php';
+  	$vehicle = new Moto(array('type' => $_POST['type'], 'color' => $_POST['color'], 'price' => $_POST['price'], 'wheelsNb' => Moto::WHEELSNB));
+  }
     
-    elseif ($_POST['type'] == 'truck'){ // Si le véhicule est un camion
-      require 'model/entity/truck.php';
-      
-      	$vehicle = new Truck(array('type' => $_POST['type'], 'color' => $_POST['color'], 'price' => $_POST['price'], 'wheelsNb' => Truck::WHEELSNB));
-    }
+  elseif ($_POST['type'] == 'truck'){ // Si le véhicule est un camion
+    require 'model/entity/truck.php';   
+    $vehicle = new Truck(array('type' => $_POST['type'], 'color' => $_POST['color'], 'price' => $_POST['price'], 'wheelsNb' => Truck::WHEELSNB));
+  }
     
-    elseif ($_POST['type'] == 'car'){ // Si le véhicule est une voiture
-      require 'model/entity/car.php';      
-      
-      $vehicle = new Car(array('type' => $_POST['type'], 'color' => $_POST['color'], 'price' => $_POST['price'], 'wheelsNb' => Car::WHEELSNB));
-    }
-    $manager -> add($vehicle);
+  elseif ($_POST['type'] == 'car'){ // Si le véhicule est une voiture
+    require 'model/entity/car.php';           
+    $vehicle = new Car(array('type' => $_POST['type'], 'color' => $_POST['color'], 'price' => $_POST['price'], 'wheelsNb' => Car::WHEELSNB));
+  }
+  $manager -> add($vehicle);
 }
-
-
 
 
 // Modifier le véhicule
@@ -49,21 +44,18 @@ if (isset($_POST['edit'])){ // si on a cliqué sur modifier
 if(isset($_POST['id']) && isset($_POST['newType']) && isset($_POST['newColor']) && !empty($_POST['newColor']) && isset($_POST['newPrice']) && !empty($_POST['newPrice'])){
 
     if($_POST['newType'] == 'car'){
-              require 'model/entity/car.php';      
-
-          $vehicle = new Car(array('type' => $_POST['newType'], 'color' => $_POST['newColor'], 'price' => $_POST['newPrice'], 'wheelsNb' => Car::WHEELSNB, 'id' => $_POST['id']));
-     }
+      require 'model/entity/car.php';      
+      $vehicle = new Car(array('type' => $_POST['newType'], 'color' => $_POST['newColor'], 'price' => $_POST['newPrice'], 'wheelsNb' => Car::WHEELSNB, 'id' => $_POST['id']));
+    }
 
     elseif($_POST['newType'] == 'truck'){
-             require 'model/entity/truck.php';      
-
-           $vehicle = new Truck(array('type' => $_POST['newType'], 'color' => $_POST['newColor'], 'price' => $_POST['newPrice'], 'wheelsNb' => Truck::WHEELSNB, 'id' => $_POST['id']));
+      require 'model/entity/truck.php';      
+      $vehicle = new Truck(array('type' => $_POST['newType'], 'color' => $_POST['newColor'], 'price' => $_POST['newPrice'], 'wheelsNb' => Truck::WHEELSNB, 'id' => $_POST['id']));
     }
 
     elseif($_POST['newType'] == 'moto'){
-          require 'model/entity/moto.php';      
-
-                 $vehicle = new Moto(array('type' => $_POST['newType'], 'color' => $_POST['newColor'], 'price' => $_POST['newPrice'], 'wheelsNb' => Moto::WHEELSNB, 'id' => $_POST['id']));
+      require 'model/entity/moto.php';      
+      $vehicle = new Moto(array('type' => $_POST['newType'], 'color' => $_POST['newColor'], 'price' => $_POST['newPrice'], 'wheelsNb' => Moto::WHEELSNB, 'id' => $_POST['id']));
     }
   // appel a la fonction de modification 
   $manager -> edit($vehicle, $_POST['id']);
@@ -76,7 +68,36 @@ if (isset($_POST['delete'])){ // SUPPRIMER
 }
 
 
-// ajouter une option pour afficher la page d'accueil
-$vehicules = $manager -> getVehicles(); // Récupère les véhicules
+// ption pour afficher la page d'accueil
+if(isset($_POST['ordre'])){
+  if($_POST['ordre'] == 'color'){
 
+    $vehicules = $manager -> getVehicles('color'); // Récupère les véhicules
+    //echo 'oui';
+  }
+  elseif($_POST['ordre'] == 'price'){
+    $vehicules = $manager -> getVehicles('price'); 
+    // Récupère les véhicules
+  }
+  elseif($_POST['ordre'] == 'type'){
+    $vehicules = $manager -> getVehicles('type'); // Récupère les véhicules
+  }
+}
+else{
+  $vehicules = $manager -> getVehicles('price'); // Récupère les véhicules
+
+}
+//var_dump($vehicules);
+//var_dump($vehicules);
 require 'view/home_view.php'; // Affiche la liste des véhicules page d'accueil
+
+
+
+
+
+
+
+
+
+
+

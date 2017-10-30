@@ -27,7 +27,6 @@
           <p class="body">Nombre de roues : <?php echo $vue['wheelsNb'] ?></p>
 
           <div class="footer">
-            <a href="detail.php?id=<?php echo $vue['id']?>" class="card-link">Voir</a>
             <form class="card-button" id="edit" method="POST" action="index.php">
               <input type="hidden" name="id" value="<?php echo $vue['id']?>">
               <button type="submit" name="edit">Modifier</button>
@@ -40,7 +39,7 @@
         </div>
 
 <!-- End -->
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+      <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
       <script src="js/plugins.js"></script>
       <script src="js/main.js"></script>
       <script type="text/javascript" src="js/vendor/jquery-1.12.0.min.js"></script>

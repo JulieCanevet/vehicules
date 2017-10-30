@@ -22,8 +22,16 @@ class VehicleManager{
 	    ));
 	}
 
-	public function getVehicles(){
-		$req = $this -> _db -> query('SELECT * FROM vehicle');
+	public function getVehicles($ordre){
+		$sql = 'SELECT * FROM vehicle ORDER BY ';
+		if ($ordre == 'type') {
+			$sql .= 'type';
+		} elseif ($ordre == 'price') {
+			$sql .= 'price';
+		} elseif ($ordre == 'color') {
+			$sql .= 'color';
+		}
+		$req = $this->_db->query($sql);
 		$details = $req -> fetchAll();
 		return $details;
 
