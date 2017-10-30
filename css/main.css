@@ -120,11 +120,10 @@ body {
     height: 1em;
 }
 
-#plus button{
+button{
     background-color: transparent;
     border-color: transparent;
-    height: 2em;
-    width: 2em;
+
 }
 
 .form-control {
@@ -189,6 +188,9 @@ body {
 #suppr{
     background-color: transparent;
     border-color: transparent;
+}
+.add {
+    display: none;
 }
 
 

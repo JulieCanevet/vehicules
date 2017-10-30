@@ -21,6 +21,5 @@
             <hr>
         </div>
     </div> <!-- /.container -->
-          <a href="index.php">Retour</a>
 
 </section>

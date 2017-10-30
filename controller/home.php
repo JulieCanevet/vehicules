@@ -8,10 +8,8 @@ require 'model/vehicle_manager.php';
 // Acces aux fonction bdd manager : $manager
 $manager = new VehicleManager($db);
 
-// if post -> affiche formulaire
-if (isset($_POST['plus'])){
-  require 'view/add_view.php';
-}
+require 'view/add_view.php';
+
 // je m' occupe de l'ajout
 if(isset($_POST['add']) && isset($_POST['type']) && isset($_POST['color']) && !empty($_POST['color']) && isset($_POST['price']) && !empty($_POST['price'])){ // Si le formulaire d'ajout est complete et envoyé
 

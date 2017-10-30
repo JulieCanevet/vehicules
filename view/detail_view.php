@@ -17,33 +17,27 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-      <form id="plus" method="POST" action="index.php">
-        <button type="submit" name="plus"><i class="fa fa-plus" aria-hidden="true"></i></button>
-      </form>
-      <a href="index.php">Retour</a>
+        <button type="submit" name="plus" class="plus"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        <a href="index.php">Retour</a>
 
-<div class="card">
-    <h3><?php echo $vue['type'] ?></h3>
-    <h6 class="body">Couleur : <?php echo $vue['color'] ?></h6>
-    <h6 class="body">Prix : <?php echo $vue['price'] ?>€</h6>
-        <p class="body">Nombre de roues : <?php echo $vue['wheelsNb'] ?></p>
+        <div class="card">
+          <h3><?php echo $vue['type'] ?></h3>
+          <h6 class="body">Couleur : <?php echo $vue['color'] ?></h6>
+          <h6 class="body">Prix : <?php echo $vue['price'] ?>€</h6>
+          <p class="body">Nombre de roues : <?php echo $vue['wheelsNb'] ?></p>
 
-        <div class="footer">
-
-    <a href="detail.php?id=<?php echo $vue['id']?>" class="card-link">Voir</a>
-    
-        <form class="card-button" id="edit" method="POST" action="index.php">
-      <input type="hidden" name="id" value="<?php echo $vue['id']?>">
-      <button type="submit" name="edit">Modifier</button>
-    </form>
-
-    <form class="card-button" id="delete" method="POST" action="index.php">
-      <input type="hidden" name="id" value="<?php echo $vue['id']?>">
-      <button type="submit" name="delete">Supprimer</button>
-    </form>
-  </div>
-  </div>
-</div>
+          <div class="footer">
+            <a href="detail.php?id=<?php echo $vue['id']?>" class="card-link">Voir</a>
+            <form class="card-button" id="edit" method="POST" action="index.php">
+              <input type="hidden" name="id" value="<?php echo $vue['id']?>">
+              <button type="submit" name="edit">Modifier</button>
+            </form>
+            <form class="card-button delete" method="POST" action="index.php">
+              <input type="hidden" name="id" value="<?php echo $value['id']?>"/>
+              <input type="submit" id="suppr" name="delete" onclick="if(!confirm('Etes-vous sur de vouloir supprimer ce véhicule ?')) return false;" value="Supprimer"/>
+            </form>
+          </div>
+        </div>
 
 <!-- End -->
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
