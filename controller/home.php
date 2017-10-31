@@ -1,12 +1,9 @@
 <?php
-// appel connexion 
-require 'model/connexion.php';
+require 'model/connexion.php'; // appel connexion 
 
-// appel model dont on a besoin 
-require 'model/vehicle_manager.php';
+require 'model/vehicle_manager.php'; // appel model dont on a besoin 
 
-// Acces aux fonction bdd manager : $manager
-$manager = new VehicleManager($db);
+$manager = new VehicleManager($db); // Acces aux fonction bdd manager : $manager
 
 require 'view/add_view.php';
 
@@ -29,7 +26,6 @@ if(isset($_POST['add']) && isset($_POST['type']) && isset($_POST['color']) && !e
   }
   $manager -> add($vehicle);
 }
-
 
 // Modifier le véhicule
 if (isset($_POST['edit'])){ // si on a cliqué sur modifier
@@ -61,43 +57,28 @@ if(isset($_POST['id']) && isset($_POST['newType']) && isset($_POST['newColor']) 
   $manager -> edit($vehicle, $_POST['id']);
 }
 
-
 if (isset($_POST['delete'])){ // SUPPRIMER
 	$id = intval(htmlspecialchars($_POST['id']));
 	$manager -> delete($id);
 }
 
-
 // ption pour afficher la page d'accueil
 if(isset($_POST['ordre'])){
-  if($_POST['ordre'] == 'color'){
+    if($_POST['ordre'] == 'color'){
 
-    $vehicules = $manager -> getVehicles('color'); // Récupère les véhicules
-    //echo 'oui';
-  }
-  elseif($_POST['ordre'] == 'price'){
-    $vehicules = $manager -> getVehicles('price'); 
-    // Récupère les véhicules
-  }
-  elseif($_POST['ordre'] == 'type'){
-    $vehicules = $manager -> getVehicles('type'); // Récupère les véhicules
-  }
+      $vehicules = $manager -> getVehicles('color'); // Récupère les véhicules
+      //echo 'oui';
+    }
+    elseif($_POST['ordre'] == 'price'){
+      $vehicules = $manager -> getVehicles('price'); 
+      // Récupère les véhicules
+    }
+    elseif($_POST['ordre'] == 'type'){
+      $vehicules = $manager -> getVehicles('type'); // Récupère les véhicules
+    }
 }
 else{
   $vehicules = $manager -> getVehicles('price'); // Récupère les véhicules
 
 }
-//var_dump($vehicules);
-//var_dump($vehicules);
 require 'view/home_view.php'; // Affiche la liste des véhicules page d'accueil
-
-
-
-
-
-
-
-
-
-
-
