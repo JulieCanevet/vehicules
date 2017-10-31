@@ -12,7 +12,7 @@ class VehicleManager{
 		$this->_db = $db;
 	}
 	
-  	public function add($vehicle){
+  	public function add($vehicle){ // Add vehicle
 	    $req = $this -> _db ->prepare('INSERT INTO vehicle (type, color, price, wheelsNb) VALUES(:type, :color, :price, :wheelsNb)');
 	    $req -> execute(array(
 	    'type' => $vehicle -> getType(),
@@ -22,7 +22,7 @@ class VehicleManager{
 	    ));
 	}
 
-	public function getVehicles($ordre){
+	public function getVehicles($ordre){ //sort the listing in home page
 		$sql = 'SELECT * FROM vehicle ORDER BY ';
 		if ($ordre == 'type') {
 			$sql .= 'type';
@@ -34,10 +34,9 @@ class VehicleManager{
 		$req = $this->_db->query($sql);
 		$details = $req -> fetchAll();
 		return $details;
-
 	}
 
-	public function edit($vehicle, $id){
+	public function edit($vehicle, $id){ // edit cibling vehicle
 		$req = $this -> _db -> prepare('UPDATE vehicle 
 			SET type = :newtype, color = :newcolor, price = :newprice, wheelsNb = :wheelsNb
 			WHERE id=:id');
@@ -50,9 +49,7 @@ class VehicleManager{
 		));
 	}
 
-
-
-	public function delete($id){
+	public function delete($id){ // delete cibling vehicle
 		$req = $this -> _db -> prepare('DELETE FROM vehicle
 		WHERE id = :id');
 		$req -> execute(array(
@@ -60,24 +57,6 @@ class VehicleManager{
 		));
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
